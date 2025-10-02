@@ -17,14 +17,20 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "fix-line-endings": "powershell -ExecutionPolicy Bypass -File ./fix-line-endings.ps1"
   },
   "dependencies": {
+    "@apollo/server": "^4.12.2",
+    "@nestjs/apollo": "^12.1.0",
     "@nestjs/common": "^11.0.1",
     "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.0.1",
+    "@nestjs/graphql": "^12.1.1",
     "@nestjs/mongoose": "^11.0.3",
     "@nestjs/platform-express": "^11.0.1",
+    "graphiql": "^5.0.0-rc.0",
+    "graphql": "^16.11.0",
     "joi": "^18.0.1",
     "mongoose": "^8.18.3",
     "reflect-metadata": "^0.2.2",
