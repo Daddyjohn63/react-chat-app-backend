@@ -20,3 +20,5 @@ foreach ($file in $tsFiles) {
 Write-Host "Fixed $fixedCount files" -ForegroundColor Cyan
 Write-Host "Done! All TypeScript files now have LF line endings." -ForegroundColor Green
 
+
+
