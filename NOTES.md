@@ -7,6 +7,6 @@ https://www.apollographql.com/docs/
 
 https://studio.apollographql.com/
 
-IN POWERSHELL
+IN POWERSHELL TO CONNECT TO APOLLO STUDIO
 
 rover subgraph publish My-Graph-hlhojn@current --schema "src/schema.gql" --name "chatter-backend" --routing-url "http://localhost:3000/graphql"

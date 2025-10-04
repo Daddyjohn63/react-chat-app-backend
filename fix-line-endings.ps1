@@ -22,3 +22,4 @@ Write-Host "Done! All TypeScript files now have LF line endings." -ForegroundCol
 
 
 
+

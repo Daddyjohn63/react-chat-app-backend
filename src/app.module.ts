@@ -19,7 +19,7 @@ import { GraphQLModule } from '@nestjs/graphql';
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: 'src/schema.gql',
+      autoSchemaFile: 'src/schema.gql', //set to TRUE for creation in memory.
       playground: true,
     }),
     DatabaseModule,
