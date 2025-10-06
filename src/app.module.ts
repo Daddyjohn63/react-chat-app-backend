@@ -8,6 +8,7 @@ import { UsersModule } from './users/users.module';
 import { ApolloDriver } from '@nestjs/apollo';
 import { ApolloDriverConfig } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -19,8 +20,14 @@ import { GraphQLModule } from '@nestjs/graphql';
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: 'src/schema.gql', //set to TRUE for creation in memory.
-      playground: true,
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      sortSchema: true,
+      introspection: true, // enable for local dev
+      playground: false, // Apollo Studio replaces Playground
+      apollo: {
+        key: process.env.APOLLO_KEY,
+        graphRef: process.env.APOLLO_GRAPH_REF,
+      },
     }),
     DatabaseModule,
     UsersModule,
@@ -29,3 +36,24 @@ import { GraphQLModule } from '@nestjs/graphql';
   providers: [AppService],
 })
 export class AppModule {}
+
+// @Module({
+//   imports: [
+//     ConfigModule.forRoot({
+//       isGlobal: true,
+//       validationSchema: Joi.object({
+//         MONGODB_URI: Joi.string().required(),
+//       }),
+//     }),
+//     GraphQLModule.forRoot<ApolloDriverConfig>({
+//       driver: ApolloDriver,
+//       autoSchemaFile: 'src/schema.gql', //set to TRUE for creation in memory.
+//       playground: true,
+//     }),
+//     DatabaseModule,
+//     UsersModule,
+//   ],
+//   controllers: [AppController],
+//   providers: [AppService],
+// })
+// export class AppModule {}
