@@ -9,6 +9,7 @@ import { ConfigService } from '@nestjs/config';
 // Import ModelDefinition and MongooseModule from the NestJS Mongoose package.
 // ModelDefinition is used to define Mongoose models, and MongooseModule provides integration with Mongoose.
 import { ModelDefinition, MongooseModule } from '@nestjs/mongoose';
+import { DbMigrationService } from './db-migration.service';
 
 // Define a NestJS module using the @Module decorator.
 // This module is responsible for setting up the database connection using Mongoose.
@@ -29,6 +30,7 @@ import { ModelDefinition, MongooseModule } from '@nestjs/mongoose';
       inject: [ConfigService],
     }),
   ],
+  providers: [DbMigrationService],
 })
 export class DatabaseModule {
   // Define a static method forFeature that takes an array of ModelDefinition objects.
