@@ -3,8 +3,8 @@
 # ------------------------------------------------------
 
 type User {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  _id: ID!
+  email: String!
 }
 
 type Query {
