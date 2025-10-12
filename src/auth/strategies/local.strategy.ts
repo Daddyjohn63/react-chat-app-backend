@@ -28,6 +28,8 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
    * - usernameField: 'email' tells Passport to look for 'email' field instead of 'username'
    *   in the request body (since we're using email-based authentication)
    */
+
+  //Need to inject the UsersService to verify user credentials using the UsersService.verifyUser() method created.
   constructor(private readonly usersService: UsersService) {
     super({
       usernameField: 'email', // By default, passport-local expects 'username', we override it to 'email'
