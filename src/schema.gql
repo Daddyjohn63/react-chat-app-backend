@@ -9,7 +9,7 @@ input CreateUserInput {
 
 type Mutation {
   createUser(createUserInput: CreateUserInput!): User!
-  removeUser(_id: String!): User!
+  removeUser: User!
   updateUser(updateUserInput: UpdateUserInput!): User!
 }
 
@@ -19,7 +19,6 @@ type Query {
 }
 
 input UpdateUserInput {
-  _id: String!
   email: String
   password: String
 }
