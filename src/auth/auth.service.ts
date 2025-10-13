@@ -19,14 +19,16 @@ export class AuthService {
 
   async login(user: User, response: Response) {
     const expires = new Date();
-    expires.setSeconds(expires.getSeconds() + this.configService.getOrThrow('JWT_EXPIRATION'));
+    expires.setSeconds(
+      expires.getSeconds() + this.configService.getOrThrow<number>('JWT_EXPIRATION'),
+    );
 
     const tokenPayload: TokenPayload = {
       _id: user._id.toHexString(),
       email: user.email,
     };
 
-    const token = this.jwtService.sign(tokenPayload);
+    const token = await this.jwtService.signAsync(tokenPayload);
 
     response.cookie('Authentication', token, {
       httpOnly: true,
