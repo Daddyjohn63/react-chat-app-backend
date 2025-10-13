@@ -19,6 +19,7 @@ import { UsersModule } from 'src/users/users.module';
 import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
+import { JwtStrategy } from './strategies/jwt.stategy';
 
 @Module({
   /**
@@ -29,7 +30,7 @@ import { ConfigService } from '@nestjs/config';
    * These are registered with NestJS's dependency injection container
    * and can be injected into other classes within this module
    */
-  providers: [AuthService, LocalStrategy],
+  providers: [AuthService, LocalStrategy, JwtStrategy],
 
   /**
    * Imports: Other modules that this module depends on
